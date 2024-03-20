@@ -68,7 +68,7 @@ class NotificationView extends StatelessWidget {
                       ]),
                   child: ListView.builder(
                     itemCount: notification.length,
-                    physics: const NeverScrollableScrollPhysics(),
+                    physics: const AlwaysScrollableScrollPhysics(),
                     itemBuilder: (context, index) {
                       var nObj = notification[index] as Map;
                       return Column(
@@ -142,7 +142,7 @@ class NotificationView extends StatelessWidget {
                       ),
                     ]),
                 child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   itemCount: notification.length,
                   itemBuilder: (context, index) {
                     var nObj = notification[index] as Map;

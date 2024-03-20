@@ -1,8 +1,6 @@
 import 'package:dashboard/utils/color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckInOutView extends StatelessWidget {
@@ -14,6 +12,14 @@ class CheckInOutView extends StatelessWidget {
       backgroundColor: primaryColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            )),
         title: Text(
           'Check Ins and Outs',
           style: TextStyle(
@@ -95,7 +101,7 @@ class CheckInOutView extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(
-                                height: 70.h,
+                                height: 50.h,
                               ),
                               Text(
                                 'Night: 2',
@@ -238,7 +244,7 @@ class CheckInOutView extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(
-                                height: 70.h,
+                                height: 50.h,
                               ),
                               Text(
                                 'Night: 2',
@@ -292,9 +298,7 @@ class CheckInOutView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(
-                                height: 20.sp,
-                              ),
+                              SizedBox(),
                             ],
                           ),
                           Expanded(

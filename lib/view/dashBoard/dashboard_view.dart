@@ -3,7 +3,6 @@ import 'package:dashboard/view/Notification/notification_view.dart';
 import 'package:dashboard/view/main_tab/main_tab.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashBoardView extends StatelessWidget {
@@ -13,91 +12,35 @@ class DashBoardView extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget leftTitleWidgets(double value, TitleMeta meta) {
       const style = TextStyle(
-        color: Colors.limeAccent,
+        color: Colors.black,
         fontSize: 12,
       );
       return SideTitleWidget(
         axisSide: AxisSide.bottom,
         child: Text(
-          '${value + 40}',
+          '${value + 0}',
           style: style,
         ),
       );
     }
 
-    Widget bottomTitleWidgets(double value, TitleMeta meta) {
-      String text;
-      switch (value.toInt()) {
-        case 0:
-          text = 'Jan';
-          break;
-        case 1:
-          text = 'Feb';
-          break;
-        case 2:
-          text = 'Mar';
-          break;
-        case 3:
-          text = 'Apr';
-          break;
-        case 4:
-          text = 'May';
-          break;
-        case 5:
-          text = 'Jun';
-          break;
-        case 6:
-          text = 'Jul';
-          break;
-        case 7:
-          text = 'Aug';
-          break;
-        case 8:
-          text = 'Sep';
-          break;
-        case 9:
-          text = 'Oct';
-          break;
-        case 10:
-          text = 'Nov';
-          break;
-        case 11:
-          text = 'Dec';
-          break;
-        default:
-          return Container();
-      }
-
-      return SideTitleWidget(
-        axisSide: meta.axisSide,
-        space: 4,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 10,
-            color: Colors.brown,
-            fontWeight: FontWeight.bold,
+    return Scaffold(
+      backgroundColor: const Color.fromRGBO(178, 165, 194, 1),
+      body: Stack(alignment: Alignment.topLeft, children: [
+        Positioned(
+          top: 0,
+          left: 0,
+          right: 60,
+          child: Image.asset(
+            'assets/dash.png',
+            width: MediaQuery.sizeOf(context).width * 0.75,
+            height: 400.h,
           ),
         ),
-      );
-    }
-
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color.fromRGBO(178, 165, 194, 1),
-        body: Stack(alignment: Alignment.topLeft, children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 68,
-            child: Image.asset(
-              'assets/dash.png',
-              width: 250.w,
-              height: 400.h,
-            ),
-          ),
-          SizedBox(
-            height: double.maxFinite,
+        SizedBox(
+          height: double.maxFinite,
+          child: SafeArea(
+            bottom: false,
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(),
               child: Column(
@@ -133,7 +76,7 @@ class DashBoardView extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return const  NotificationView();
+                              return const NotificationView();
                             }));
                           },
                           child: Stack(
@@ -159,102 +102,159 @@ class DashBoardView extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   AspectRatio(
-                    aspectRatio: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: 12,
-                        right: 28,
-                        top: 22,
-                        bottom: 12,
+                    aspectRatio: 16 / 10,
+                    child: Container(
+                      height: 320.h,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(255, 242, 242, 0.9),
+                        borderRadius: BorderRadius.circular(32),
                       ),
                       child: LineChart(
+                        duration: const Duration(
+                          seconds: 2,
+                        ),
                         LineChartData(
-                            lineTouchData: const LineTouchData(enabled: false),
-                            lineBarsData: [
-                              LineChartBarData(
-                                spots: [
-                                  const FlSpot(0, 4),
-                                  const FlSpot(1, 3.5),
-                                  const FlSpot(2, 4.5),
-                                  const FlSpot(3, 1),
-                                  const FlSpot(4, 4),
-                                  const FlSpot(5, 6),
-                                  const FlSpot(6, 6.5),
-                                  const FlSpot(7, 6),
-                                  const FlSpot(8, 4),
-                                  const FlSpot(9, 6),
-                                  const FlSpot(10, 6),
-                                  const FlSpot(11, 7),
-                                ],
-                                isCurved: false,
-                                barWidth: 2,
-                                color: Colors.redAccent,
-                                belowBarData: BarAreaData(
-                                  show: true,
-                                  spotsLine: BarAreaSpotsLine(
-                                    checkToShowSpotLine: (spot) {
-                                      spot = const FlSpot(2, 1);
-                                      return true;
-                                    },
-                                  ),
-                                  cutOffY: 0,
-                                  applyCutOffY: true,
-                                ),
-                                aboveBarData: BarAreaData(
-                                  show: true,
-                                  color: Colors.indigoAccent,
-                                  cutOffY: 1.1,
-                                  applyCutOffY: true,
-                                ),
-                                dotData: const FlDotData(
-                                  show: false,
-                                ),
+                          lineTouchData: const LineTouchData(enabled: false),
+                          lineBarsData: [
+                            LineChartBarData(
+                              isStepLineChart: false,
+                              shadow: Shadow(
+                                color: Colors.grey.shade500,
+                                blurRadius: 2,
+                                offset: const Offset(0, 1),
                               ),
-                            ],
-                            minY: 0,
-                            titlesData: FlTitlesData(
+                              curveSmoothness: 2,
+                              spots: [
+                                const FlSpot(0, 1),
+                                const FlSpot(1, 10.5),
+                                const FlSpot(2, 1),
+                                const FlSpot(3, 10.5),
+                                const FlSpot(4, 20.5),
+                                const FlSpot(5, 10.5),
+                                const FlSpot(6, 20.5),
+                                const FlSpot(7, 40.5),
+                                const FlSpot(8, 15.5),
+                                const FlSpot(9, 70.5),
+                                const FlSpot(10, 80.5),
+                                const FlSpot(11, 10.5),
+                                const FlSpot(12, 20.5),
+                                const FlSpot(13, 40.5),
+                                const FlSpot(14, 15.5),
+                                const FlSpot(15, 70.5),
+                                const FlSpot(16, 6),
+                                const FlSpot(17, 7),
+                              ],
+                              isCurved: false,
+                              barWidth: 2,
+                              color: const Color.fromRGBO(25, 224, 188, 1),
+                              belowBarData: BarAreaData(
+                                color: Colors.transparent,
+                                show: true,
+                                spotsLine: BarAreaSpotsLine(
+                                  checkToShowSpotLine: (spot) {
+                                    spot = const FlSpot(2, 1);
+                                    return true;
+                                  },
+                                ),
+                                cutOffY: 0,
+                                applyCutOffY: true,
+                              ),
+                              aboveBarData: BarAreaData(
+                                spotsLine: const BarAreaSpotsLine(
+                                    show: false,
+                                    flLineStyle: FlLine(
+                                        color: Colors.greenAccent,
+                                        strokeWidth: 2,
+                                        dashArray: [
+                                          1,
+                                          2,
+                                          3,
+                                          4,
+                                          5,
+                                        ])),
+                                applyCutOffY: true,
+                              ),
+                              dotData: const FlDotData(
+                                show: false,
+                              ),
                               show: true,
-                              topTitles: const AxisTitles(
-                                sideTitles: SideTitles(showTitles: false),
+                              showingIndicators: [
+                                DateTime.september,
+                              ],
+                            ),
+                          ],
+                          minY: 0,
+                          baselineX: 2,
+                          maxY: 100,
+                          titlesData: FlTitlesData(
+                            show: true,
+                            topTitles: const AxisTitles(
+                              sideTitles: SideTitles(showTitles: false),
+                            ),
+                            rightTitles: const AxisTitles(
+                              sideTitles: SideTitles(showTitles: false),
+                            ),
+                            bottomTitles: AxisTitles(
+                              drawBelowEverything: true,
+                              axisNameWidget: Text(
+                                'Occupency',
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                              rightTitles: const AxisTitles(
-                                sideTitles: SideTitles(showTitles: false),
-                              ),
-                              bottomTitles: AxisTitles(
-                                axisNameWidget: Text(
-                                  'Occupency',
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                sideTitles: SideTitles(
-                                  showTitles: true,
-                                  reservedSize: 18,
-                                  interval: 1,
-                                  getTitlesWidget: bottomTitleWidgets,
-                                ),
-                              ),
-                              leftTitles: AxisTitles(
-                                axisNameSize: 20,
-                                axisNameWidget: const Text(
-                                  'Value',
-                                  style: TextStyle(
-                                    color: priceColor,
-                                  ),
-                                ),
-                                sideTitles: SideTitles(
-                                  showTitles: true,
-                                  reservedSize: 40,
-                                  getTitlesWidget: leftTitleWidgets,
-                                ),
+                              sideTitles: const SideTitles(
+                                showTitles: false,
                               ),
                             ),
-                            borderData: FlBorderData(
-                                border: Border.all(color: Colors.transparent))),
+                            leftTitles: AxisTitles(
+                              axisNameSize: 20,
+                              drawBelowEverything: true,
+                              sideTitles: SideTitles(
+                                showTitles: true,
+                                reservedSize: 40,
+                                getTitlesWidget: leftTitleWidgets,
+                              ),
+                            ),
+                          ),
+                          clipData: const FlClipData(
+                              top: true,
+                              bottom: true,
+                              left: false,
+                              right: true),
+                          gridData: const FlGridData(
+                            drawHorizontalLine: true,
+                            drawVerticalLine: false,
+                            show: true,
+                          ),
+                          showingTooltipIndicators: [
+                            ShowingTooltipIndicators(
+                              [
+                                LineBarSpot(
+                                  LineChartBarData(),
+                                  2,
+                                  const FlSpot(70, 70),
+                                ),
+                              ],
+                            ),
+                          ],
+                          borderData: FlBorderData(
+                            border: Border.all(color: Colors.transparent),
+                          ),
+                        ),
                       ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 20.sp,
                   ),
                   Text(
                     '    Financial Overview',
@@ -343,8 +343,7 @@ class DashBoardView extends StatelessWidget {
                     height: 10.h,
                   ),
                   Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
                         onTap: () {
@@ -393,6 +392,8 @@ class DashBoardView extends StatelessWidget {
                                   'Expenses',
                                   style: TextStyle(
                                     fontSize: 11.sp,
+                                    backgroundColor: Colors.white,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 )
@@ -448,6 +449,7 @@ class DashBoardView extends StatelessWidget {
                                   'Income',
                                   style: TextStyle(
                                     fontSize: 11.sp,
+                                    color: Colors.white,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 )
@@ -585,8 +587,8 @@ class DashBoardView extends StatelessWidget {
               ),
             ),
           ),
-        ]),
-      ),
+        ),
+      ]),
     );
   }
 }
