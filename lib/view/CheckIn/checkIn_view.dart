@@ -29,6 +29,10 @@ class CheckIn extends StatelessWidget {
 
     return Scaffold(
       appBar: PreferredSize(
+        preferredSize: Size(
+          double.maxFinite,
+          200.sp,
+        ),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           color: primaryColor,
@@ -88,10 +92,6 @@ class CheckIn extends StatelessWidget {
               ],
             ),
           ),
-        ),
-        preferredSize: Size(
-          double.maxFinite,
-          200.sp,
         ),
       ),
       body: Container(

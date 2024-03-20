@@ -29,7 +29,9 @@ class CheckInOutView extends StatelessWidget {
           ),
         ),
       ),
-      body: Expanded(
+      body: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 25,
@@ -56,16 +58,17 @@ class CheckInOutView extends StatelessWidget {
                       width: double.infinity,
                       height: 200.h,
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
+                          const EdgeInsets.only(left: 20, right: 10, top: 15),
                       decoration: BoxDecoration(
                         color: containerColor,
                         borderRadius: BorderRadius.circular(25),
                       ),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,7 +104,7 @@ class CheckInOutView extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(
-                                height: 50.h,
+                                height: 40.h,
                               ),
                               Text(
                                 'Night: 2',
@@ -155,17 +158,12 @@ class CheckInOutView extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(
-                                height: 20.sp,
-                              ),
                             ],
                           ),
-                          Expanded(
-                            child: Image.asset(
-                              'assets/check.png',
-                              width: 80.w,
-                              height: 80.h,
-                            ),
+                          Image.asset(
+                            'assets/check.png',
+                            width: 80.w,
+                            height: 80.h,
                           )
                         ],
                       ),
@@ -199,7 +197,7 @@ class CheckInOutView extends StatelessWidget {
                       width: double.infinity,
                       height: 200.h,
                       padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 20),
+                          const EdgeInsets.only(left: 20, right: 10, top: 20),
                       decoration: BoxDecoration(
                         color: containerColor,
                         borderRadius: BorderRadius.circular(25),
@@ -244,7 +242,7 @@ class CheckInOutView extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(
-                                height: 50.h,
+                                height: 30.h,
                               ),
                               Text(
                                 'Night: 2',
@@ -253,9 +251,6 @@ class CheckInOutView extends StatelessWidget {
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black,
                                 ),
-                              ),
-                              SizedBox(
-                                height: 30.sp,
                               ),
                               Row(
                                 children: [

@@ -18,7 +18,7 @@ class DashBoardView extends StatelessWidget {
       return SideTitleWidget(
         axisSide: AxisSide.bottom,
         child: Text(
-          '${value + 0}',
+          '${value + 20}',
           style: style,
         ),
       );
@@ -38,7 +38,7 @@ class DashBoardView extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: double.maxFinite,
+          height: MediaQuery.sizeOf(context).height,
           child: SafeArea(
             bottom: false,
             child: SingleChildScrollView(
@@ -141,23 +141,18 @@ class DashBoardView extends StatelessWidget {
                                 const FlSpot(5, 10.5),
                                 const FlSpot(6, 20.5),
                                 const FlSpot(7, 40.5),
-                                const FlSpot(8, 15.5),
-                                const FlSpot(9, 70.5),
-                                const FlSpot(10, 80.5),
-                                const FlSpot(11, 10.5),
-                                const FlSpot(12, 20.5),
-                                const FlSpot(13, 40.5),
-                                const FlSpot(14, 15.5),
-                                const FlSpot(15, 70.5),
-                                const FlSpot(16, 6),
-                                const FlSpot(17, 7),
+                                const FlSpot(9, 30.5),
+                                const FlSpot(10, 50.5),
+                                const FlSpot(10, 70.5),
+                                const FlSpot(13, 50.5),
+                                const FlSpot(14, 85.5),
+                                const FlSpot(15, 60.5),
                               ],
                               isCurved: false,
                               barWidth: 2,
                               color: const Color.fromRGBO(25, 224, 188, 1),
                               belowBarData: BarAreaData(
                                 color: Colors.transparent,
-                                show: true,
                                 spotsLine: BarAreaSpotsLine(
                                   checkToShowSpotLine: (spot) {
                                     spot = const FlSpot(2, 1);
@@ -169,17 +164,19 @@ class DashBoardView extends StatelessWidget {
                               ),
                               aboveBarData: BarAreaData(
                                 spotsLine: const BarAreaSpotsLine(
-                                    show: false,
-                                    flLineStyle: FlLine(
-                                        color: Colors.greenAccent,
-                                        strokeWidth: 2,
-                                        dashArray: [
-                                          1,
-                                          2,
-                                          3,
-                                          4,
-                                          5,
-                                        ])),
+                                  show: false,
+                                  flLineStyle: FlLine(
+                                    color: Colors.greenAccent,
+                                    strokeWidth: 2,
+                                    dashArray: [
+                                      1,
+                                      2,
+                                      3,
+                                      4,
+                                      5,
+                                    ],
+                                  ),
+                                ),
                                 applyCutOffY: true,
                               ),
                               dotData: const FlDotData(
@@ -192,8 +189,7 @@ class DashBoardView extends StatelessWidget {
                             ),
                           ],
                           minY: 0,
-                          baselineX: 2,
-                          maxY: 100,
+                          maxY: 80,
                           titlesData: FlTitlesData(
                             show: true,
                             topTitles: const AxisTitles(
@@ -257,115 +253,123 @@ class DashBoardView extends StatelessWidget {
                   SizedBox(
                     height: 20.sp,
                   ),
-                  Text(
-                    '    Financial Overview',
-                    style: TextStyle(
-                      fontSize: 11.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      'Financial Overview',
+                      style: TextStyle(
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10.h,
                   ),
-                  Container(
-                    width: 389.w,
-                    height: 192.h,
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 25, vertical: 20),
-                    decoration: BoxDecoration(
-                      color: dashConColor,
-                      borderRadius: BorderRadius.circular(25),
+                  Center(
+                    child: Container(
+                      width: 389.w,
+                      height: 192.h,
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 25, vertical: 20),
+                      decoration: BoxDecoration(
+                        color: dashConColor,
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'In & Out',
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Today, 08 Sept 2019',
+                                    style: TextStyle(
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Active Total Balance',
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    '\$8,420.00',
+                                    style: TextStyle(
+                                      fontSize: 32.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                          Image.asset(
+                            'assets/money.png',
+                            width: 100.w,
+                            height: 100.h,
+                          )
+                        ],
+                      ),
                     ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'In & Out',
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  'Today, 08 Sept 2019',
-                                  style: TextStyle(
-                                    fontSize: 11.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Active Total Balance',
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  '\$8,420.00',
-                                  style: TextStyle(
-                                    fontSize: 32.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                        Image.asset(
-                          'assets/money.png',
-                          width: 100.w,
-                          height: 100.h,
-                        )
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const MainTab();
-                          }));
-                        },
-                        child: Expanded(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const MainTab();
+                            }));
+                          },
                           child: Container(
                             height: 225.h,
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            width: 200.w,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 30),
+                                horizontal: 15, vertical: 20),
                             decoration: BoxDecoration(
                               color: const Color.fromRGBO(210, 37, 37, 1),
                               borderRadius: BorderRadius.circular(26),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text(
                                   '\$8,420.00',
@@ -402,27 +406,25 @@ class DashBoardView extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return MainTab();
-                          }));
-                        },
-                        child: Expanded(
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const MainTab();
+                            }));
+                          },
                           child: Container(
                             height: 225.h,
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            width: 200.w,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 30),
+                                horizontal: 20, vertical: 20),
                             decoration: BoxDecoration(
                               color: const Color.fromRGBO(11, 36, 98, 1),
                               borderRadius: BorderRadius.circular(26),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
                                   '\$8,420.00',
@@ -433,6 +435,8 @@ class DashBoardView extends StatelessWidget {
                                   ),
                                 ),
                                 Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Image.asset(
                                       'assets/arrowd.png',
@@ -458,8 +462,8 @@ class DashBoardView extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 29.h,
