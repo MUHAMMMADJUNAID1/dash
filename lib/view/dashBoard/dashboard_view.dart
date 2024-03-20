@@ -28,12 +28,12 @@ class DashBoardView extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(178, 165, 194, 1),
       body: Stack(alignment: Alignment.topLeft, children: [
         Positioned(
-          top: 0,
           left: 0,
-          right: 60,
+          right: 200,
+          top: 0,
           child: Image.asset(
             'assets/dash.png',
-            width: MediaQuery.sizeOf(context).width * 0.75,
+            width: MediaQuery.sizeOf(context).width * 0.70,
             height: 400.h,
           ),
         ),
@@ -67,6 +67,7 @@ class DashBoardView extends StatelessWidget {
                               'DASH.D',
                               style: TextStyle(
                                 fontSize: 16.sp,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

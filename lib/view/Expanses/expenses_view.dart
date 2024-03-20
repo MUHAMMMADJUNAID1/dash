@@ -42,7 +42,7 @@ class ExpensesView extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           color: primaryColor,
           child: SafeArea(
             child: Column(
@@ -82,7 +82,7 @@ class ExpensesView extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 30.sp,
+                  height: 25.sp,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,10 +122,10 @@ class ExpensesView extends StatelessWidget {
         ),
         preferredSize: Size(
           double.maxFinite,
-          200.sp,
+          245.sp,
         ),
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: MediaQuery.sizeOf(context).height,
         child: ListView.builder(

@@ -30,7 +30,7 @@ class CheckIn extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           color: primaryColor,
           child: SafeArea(
             child: Column(

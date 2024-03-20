@@ -7,7 +7,7 @@ void main() {
   runApp(
     DevicePreview(
       enabled: true,
-      tools: [
+      tools: const [
         ...DevicePreview.defaultTools,
       ],
       builder: (context) => const MyApp(),
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(428, 996),
       minTextAdapt: true,
 
       // Use builder only if you need to use library outside ScreenUtilInit context

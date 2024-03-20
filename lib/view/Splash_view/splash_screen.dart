@@ -1,15 +1,10 @@
 import 'dart:async';
 
-import 'package:dashboard/utils/color.dart';
-import 'package:dashboard/view/CheckIn/checkIn_view.dart';
-import 'package:dashboard/view/CheckInsOut/check_in_out_view.dart';
-import 'package:dashboard/view/Expanses/expenses_view.dart';
-import 'package:dashboard/view/Incom/incom_view.dart';
-import 'package:dashboard/view/Notification/notification_view.dart';
 import 'package:dashboard/view/dashBoard/dashboard_view.dart';
-import 'package:dashboard/view/main_tab/main_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../utils/color.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
