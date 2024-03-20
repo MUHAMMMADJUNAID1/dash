@@ -362,14 +362,14 @@ class DashBoardView extends StatelessWidget {
                             height: 225.h,
                             width: 200.w,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 20),
+                                horizontal: 20, vertical: 20),
                             decoration: BoxDecoration(
                               color: const Color.fromRGBO(210, 37, 37, 1),
                               borderRadius: BorderRadius.circular(26),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Text(
                                   '\$8,420.00',
@@ -380,6 +380,8 @@ class DashBoardView extends StatelessWidget {
                                   ),
                                 ),
                                 Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Image.asset(
                                       'assets/arrowd.png',
@@ -394,10 +396,9 @@ class DashBoardView extends StatelessWidget {
                                   ],
                                 ),
                                 Text(
-                                  'Expenses',
+                                  'Expanses',
                                   style: TextStyle(
                                     fontSize: 11.sp,
-                                    backgroundColor: Colors.white,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -469,61 +470,61 @@ class DashBoardView extends StatelessWidget {
                     height: 29.h,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 10),
-                          decoration: const BoxDecoration(
-                            color: Color.fromRGBO(255, 242, 242, 1),
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
-                            ),
+                      Container(
+                        width: MediaQuery.sizeOf(context).width * 0.75,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                        decoration: const BoxDecoration(
+                          color: Color.fromRGBO(255, 242, 242, 1),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Latest Transaction',
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black,
-                                ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Latest Transaction',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.black,
                               ),
-                              ListView.builder(
-                                  itemCount: 3,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemBuilder: (context, index) {
-                                    return ListTile(
-                                      leading: Image.asset(
-                                        'assets/marked.png',
+                            ),
+                            ListView.builder(
+                                itemCount: 3,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemBuilder: (context, index) {
+                                  return ListTile(
+                                    leading: Image.asset(
+                                      'assets/marked.png',
+                                    ),
+                                    title: Text(
+                                      'Acc. Room 101',
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.black,
                                       ),
-                                      title: Text(
-                                        'Acc. Room 101',
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w700,
-                                          color: Colors.black,
-                                        ),
+                                    ),
+                                    subtitle: Text(
+                                      '!00\$',
+                                      style: TextStyle(
+                                        fontSize: 11.sp,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.grey.shade400,
                                       ),
-                                      subtitle: Text(
-                                        '!00\$',
-                                        style: TextStyle(
-                                          fontSize: 11.sp,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.grey.shade400,
-                                        ),
-                                      ),
-                                      trailing: Image.asset(
-                                        'assets/marked2.png',
-                                      ),
-                                    );
-                                  })
-                            ],
-                          ),
+                                    ),
+                                    trailing: Image.asset(
+                                      'assets/marked2.png',
+                                    ),
+                                  );
+                                })
+                          ],
                         ),
                       ),
                       const SizedBox(
@@ -585,6 +586,65 @@ class DashBoardView extends StatelessWidget {
                   SizedBox(
                     height: 29.h,
                   ),
+                  Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                    Container(
+                      width: MediaQuery.sizeOf(context).width * 0.75,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      decoration: const BoxDecoration(
+                        color: Color.fromRGBO(255, 242, 242, 1),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Latest Transaction',
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black,
+                            ),
+                          ),
+                          ListView.builder(
+                              itemCount: 3,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  leading: Image.asset(
+                                    'assets/m1.png',
+                                    width: 30,
+                                    height: 30,
+                                  ),
+                                  title: Text(
+                                    'Guset 1',
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  subtitle: Text(
+                                    'Pax: 2',
+                                    style: TextStyle(
+                                      fontSize: 11.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey.shade400,
+                                    ),
+                                  ),
+                                  trailing: Image.asset(
+                                    'assets/marked2.png',
+                                  ),
+                                );
+                              })
+                        ],
+                      ),
+                    ),
+                  ]),
                   const SizedBox(
                     width: 5,
                   ),
